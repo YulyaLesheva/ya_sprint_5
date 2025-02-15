@@ -20,8 +20,6 @@ class TestLogIn:
 
         self._check_login(driver)
 
-        driver.quit()
-
     @pytest.mark.parametrize('page_url', [Pages.REGISTER.value, Pages.FORGOT_PASSWORD.value])
     def test_login(self, request, driver, page_url):
 
@@ -31,8 +29,6 @@ class TestLogIn:
         request.getfixturevalue('login')
 
         self._check_login(driver)
-
-        driver.quit()
 
     @staticmethod
     def _check_login(driver: WebDriver):

@@ -21,5 +21,3 @@ class TestLogOut:
 
         assert WebDriverWait(driver, timeout=3).until(expected_conditions.
                                                       url_to_be(WEB_SITE_ADDRESS + Pages.LOGIN.value))
-
-        driver.quit()

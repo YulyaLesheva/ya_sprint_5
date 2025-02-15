@@ -23,6 +23,6 @@ class TestConstructor:
             WebDriverWait(driver, timeout=10).until(expected_conditions.
                                                     element_to_be_clickable((By.XPATH, tab_xpath))).click()
 
-            assert WebDriverWait(driver, timeout=5).until(expected_conditions.presence_of_element_located((By.XPATH, text_xpath)))
-
-        driver.quit()
+            assert (WebDriverWait(driver, timeout=5).
+                    until(expected_conditions.presence_of_element_located((By.XPATH, text_xpath)))),\
+                f'Error at {name} tab.'

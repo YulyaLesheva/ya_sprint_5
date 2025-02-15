@@ -1,3 +1,5 @@
+from typing import Any, Generator
+
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -9,8 +11,10 @@ from data.test_data import TestData
 
 
 @pytest.fixture
-def driver() -> WebDriver:
-    return webdriver.Chrome()
+def driver() -> Generator[WebDriver, Any, None]:
+    driver = webdriver.Chrome()
+    yield driver
+    driver.quit()
 
 
 @pytest.fixture

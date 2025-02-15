@@ -32,8 +32,6 @@ class TestSignUp:
         expected_page = WEB_SITE_ADDRESS + Pages.LOGIN.value
         assert WebDriverWait(driver, timeout=3).until(expected_conditions.url_to_be(expected_page))
 
-        driver.quit()
-
     @pytest.mark.parametrize('invalid_passwords', [1, 3, 5])
     def test_incorrect_password_input(self, invalid_passwords, driver):
 
@@ -47,5 +45,3 @@ class TestSignUp:
         driver.find_element(By.XPATH, value=Buttons.SIGN_UP.value).click()
 
         assert driver.find_elements(By.XPATH, Errors.INCORRECT_PASSWORD.value) and driver.current_url == sign_in_page
-
-        driver.quit()

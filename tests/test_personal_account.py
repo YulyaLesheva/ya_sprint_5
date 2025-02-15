@@ -17,8 +17,6 @@ class TestPersonalAccount:
         assert WebDriverWait(driver, timeout=3).until(expected_conditions.
                                                       url_to_be(WEB_SITE_ADDRESS + Pages.PROFILE.value))
 
-        driver.quit()
-
     @pytest.mark.parametrize('button', [Buttons.CONSTRUCTOR.value, Buttons.LOGO.value])
     def test_go_out_personal_account_page(self, driver, button):
 
@@ -28,5 +26,3 @@ class TestPersonalAccount:
 
         assert WebDriverWait(driver, timeout=3).until(expected_conditions.
                                                       url_to_be(WEB_SITE_ADDRESS))
-
-        driver.quit()
